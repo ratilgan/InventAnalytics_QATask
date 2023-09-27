@@ -5,7 +5,9 @@ on:
 
 jobs:
   build:
+
     runs-on: windows-2019
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -16,16 +18,3 @@ jobs:
         cache: maven
     - name: Test execution for Invent Analytics task
       run: mvn verify
-    - uses: actions/checkout@v3
-    - name: Send email
-      uses: ratilgan/send-mail@v1.0.2
-      with:
-          host: smtp.gmail.com
-          account: ${{secrets.MAIL_ADDRESS}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          sender: ratilgan07
-          from: ${{secrets.MAIL_ADDRESS}}
-          subject: Github Actions job result
-          body: file://README.md
-          attachments: '[{"path":"README.md"}]'
-          to: ekserjetik@gmail.com
