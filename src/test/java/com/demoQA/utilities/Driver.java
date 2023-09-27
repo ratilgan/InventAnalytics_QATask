@@ -25,7 +25,10 @@ public class Driver {
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driverPool.set(new ChromeDriver(new ChromeOptions().addArguments("--remote-allow-origins=*")));
+                    driverPool.set(new ChromeDriver(new ChromeOptions().addArguments(
+                            "--remote-allow-origins=*",
+                            "--incognito",
+                            "--window-size=" + ConfigurationReader.get("windowSize"))));
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
