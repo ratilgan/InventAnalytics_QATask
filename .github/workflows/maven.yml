@@ -18,7 +18,7 @@ jobs:
       run: mvn verify
     - uses: actions/checkout@v3
     - name: Send email
-      uses: ratilgan/send-mail@v1.0.2
+      uses: ratilgan07/send-mail@v1.0.2
       with:
           host: smtp.gmail.com
           account: ${{secrets.MAIL_ADDRESS}}
