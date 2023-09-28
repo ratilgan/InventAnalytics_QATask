@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class BookDetailPage extends BasePage {
 
-    WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(20));
 
     @FindBy(css = ".text-right #addNewRecordButton")
     public WebElement addToYourCollectionButton;

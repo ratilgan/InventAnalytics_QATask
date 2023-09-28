@@ -13,7 +13,7 @@ public class Hooks {
 
     @Before
     public void setup() {
-        Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         Driver.get().manage().window().maximize();
     }
 

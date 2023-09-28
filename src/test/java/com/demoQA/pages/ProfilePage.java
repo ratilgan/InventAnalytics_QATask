@@ -15,7 +15,7 @@ import java.util.List;
 public class ProfilePage extends BasePage{
 
     String deleteSuccessMessage = "";
-    WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(20));
 
     @FindBy(css = ".select-wrap>select")
     public WebElement numberOfRowsSelector;
@@ -31,6 +31,9 @@ public class ProfilePage extends BasePage{
 
     @FindBy(css = ".rt-noData")
     public WebElement actualNoRowsFoundMessage;
+
+    @FindBy(id = "submit")
+    public WebElement logoutButton;
 
     public void changeTheRowNumber(String expectedRowNumber){
         Select rowNumberDropDown = new Select(numberOfRowsSelector);
@@ -56,5 +59,9 @@ public class ProfilePage extends BasePage{
 
     public void verifyTheNoRowsFoundMessage(String expectedMessage){
         Assert.assertEquals(expectedMessage, actualNoRowsFoundMessage.getText());
+    }
+
+    public void clickToLogout(){
+        logoutButton.click();
     }
 }
