@@ -90,4 +90,17 @@ public class BookStoreStepDefs {
     public void text_should_be_visible(String expectedMessage) {
         profilePage.verifyTheNoRowsFoundMessage(expectedMessage);
     }
+
+    @When("the user logs out")
+    public void the_user_logs_out() {
+        profilePage.clickToLogout();
+    }
+    @Then("should be redirected to {string}")
+    public void should_be_redirected_to(String expectedLoginPageUrl) {
+        loginPage.verifyLoginPageOpened(expectedLoginPageUrl);
+    }
+    @Then("username and password input boxes should be visible")
+    public void username_and_password_input_boxes_should_be_visible() {
+        loginPage.verifyUsernameAndPasswordInputBoxesAreVisible();
+    }
 }
